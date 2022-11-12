@@ -16,7 +16,7 @@ const SearchBar = () => {
                     onChange={ctx.handleChange}
                     value={ctx.searchItem}
                 />
-                <button onClick={ctx.onClick}>
+                <button type="button" onClick={ctx.onClick}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="w-8 text-gray-300 duration-200 hover:scale-110"

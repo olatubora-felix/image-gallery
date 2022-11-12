@@ -1,10 +1,6 @@
 import benchmark from '../images/bookmark.svg'
-import Spanner from './Spanner'
 
 const GalleryItem = ({ image, isLoading }) => {
-    if (isLoading) {
-        return <Spanner />
-    }
     return (
         <div className="relative group">
             <img src={image.previewURL} alt="" className="w-72 h-72" />

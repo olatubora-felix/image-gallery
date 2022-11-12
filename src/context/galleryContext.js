@@ -18,7 +18,7 @@ export const GalleryContextApi = ({ children }) => {
     const [images, setImages] = useState([])
     const [searchItem, setSearchItem] = useState('')
     const [loading, setloading] = useState(false)
-    const [results, setResults] = useState('')
+    const [results, setResults] = useState('computer')
     const [types, setTypes] = useState('')
     const [error, setError] = useState('')
 
@@ -40,13 +40,12 @@ export const GalleryContextApi = ({ children }) => {
     useEffect(() => {
         const getImages = async () => {
             setloading(true)
-
+            setResults('')
             try {
-                const { data } = await axios.get(fatchApi(searchItem, types))
+                const { data } = await axios.get(fatchApi(results, types))
                 if (data) {
                     setloading(false)
                     setImages(data.hits)
-                    console.log(process.env.REACT_APP_API_KEY)
                 }
             } catch (error) {
                 setloading(true)
@@ -57,7 +56,7 @@ export const GalleryContextApi = ({ children }) => {
             }
         }
         getImages()
-    }, [results, searchItem, types])
+    }, [results, types])
     return (
         <GalleryContext.Provider
             value={{

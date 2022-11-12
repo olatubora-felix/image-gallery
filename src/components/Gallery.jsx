@@ -1,14 +1,18 @@
 import React, { Fragment, useContext } from 'react'
 import GalleryContext from '../context/galleryContext'
 import GalleryItem from '../components/GalleryItem'
+import Spanner from './Spanner'
 
 const Gallery = () => {
     const ctx = useContext(GalleryContext)
     const { images, isLoading, isError } = ctx
-    console.log(images)
     if (isError) {
         return <h1 className="text-3xl">{isError}</h1>
     }
+    if (isLoading) {
+        return <Spanner />
+    }
+    console.log(images)
     return (
         <Fragment>
             <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
