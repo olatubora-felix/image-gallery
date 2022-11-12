@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const lists = ['all', 'photo', 'illustration', 'vector']
 const MenuItems = () => {
     return (
-        <div className="flex flex-col items-center justify-center space-y-3 md:flex-row md:space-y-0 md:space-x-8 md:mb-24 md:justify-end">
+        <div className="flex  items-center  space-y-3 justify-between flex-row md:space-y-0 md:space-x-8 md:mb-24 md:justify-end">
             {lists.map((list, i) => (
                 <div className="group" key={i}>
                     <Link to={`/gallery_type/${list}`}>{list}</Link>
